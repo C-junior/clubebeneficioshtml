@@ -250,6 +250,11 @@
         text-align: left;
         border-radius: 5px;
       }
+      .overlay-content img{
+        width: 80%; 
+        display: block; 
+        margin: 0 auto;
+      }
     
       h2 {
         padding: 36px 0;
@@ -344,7 +349,9 @@
         top: -30px;
         font-size: 0.8rem;
     }
-   
+    .overlay-content img{
+        width: 300px;
+    }
 }
 
 #citySelect{
