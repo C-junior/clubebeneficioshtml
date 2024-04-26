@@ -102,6 +102,11 @@
         justify-content: space-around;
         align-items: flex-end;
     }
+    .containerheader p {
+        font-size: 1.4rem;
+        text-align: justify;
+        margin-left: 18px;
+    }
     .logo {
         display: flex;
         align-self: center;
@@ -127,7 +132,7 @@
     }
     
     .activity-bar select {
-        width: 300px;
+        width:50%;  
         padding: 8px;
         margin: 0 10px;
         font-size: 14px;
@@ -139,7 +144,11 @@
     }
 
     .select-group {
-        margin: 0 10px;
+        width: 100%;
+        max-width: 1080px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     
     .label {
@@ -159,7 +168,7 @@
     
     .activity-bar select:focus {
         outline: none;
-        border-color: #26489e;
+        border-color: #101955;
     }
     
     .activity-bar select:hover {
@@ -247,7 +256,7 @@
         margin: auto;
         text-align: center;
         font-weight: 400;
-        font-size: 1.5rem;
+        font-size: calc(max(18px, 1.8vw)) !important;
       }
 
       /* Keep your existing CSS */
@@ -269,6 +278,10 @@
         width: 80%; /* 80% width for search input */
         margin-bottom: 10px; /* Add some space between input and button */
     }
+    #citySelect {
+        width: 80%; /* 80% width for select boxes */
+        margin-bottom: 10px; /* Add some space between select boxes */
+    }
 
     .search-bar button {
         width: 80%; /* 80% width for search button */
@@ -282,7 +295,10 @@
         flex-direction: column; /* Stack activity bar items in a column */
         align-items: center; /* Center items horizontally */
     }
-
+    .select-group{
+        flex-direction: column; /* Stack activity bar items in a column */
+        align-items: center; /* Center items horizontally */
+    }
     .activity-bar select {
         width: 90%; /* 80% width for select boxes */
         margin-bottom: 10px; /* Add some space between select boxes */
@@ -329,4 +345,41 @@
         font-size: 0.8rem;
     }
    
+}
+
+#citySelect{
+    width: 100%;
+    color:#fff!important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    color:#fff!important;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered{
+    padding-left: 12px !important;
+    border: white solid 1px;
+    background-color: #101955 !important;
+    border-radius: 25px;
+}
+.select2-container--default .select2-selection--single{
+    background-color: transparent!important;
+    border: none!important;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #101955 !important;
+}
+
+.overlay-content .badge {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+    background-color: #101955;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+
+  .activity-bar select option:hover {
+    background-color: #101955;
 }
