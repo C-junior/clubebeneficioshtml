@@ -184,30 +184,35 @@
             <div class="select-group">
             
                 <label for="activitySelect" class="label">Atividade</label>
-                <select id="activitySelect" class="select">
+                <select id="activitySelect" class="select" onchange="selectedActivity()">
                     <option value="all">Todas as atividades</option>
-                    <option value="atividade1">Atividade 1</option>
-                    <option value="atividade2">Atividade 2</option>
-                    <!-- Add more options for activities -->
+                    <option value="Saúde">Saúde</option>
+                    <option value="Papelaria">Papelaria</option>
+                    <option value="Turismo">Turismo</option>
+                    <option value="Alimentos">Alimentos</option>
+                    <option value="Otica">Ótica</option>
+                  
                 </select>
           
             
                 <label for="companySelect" class="label">Empresa</label>
                 <select id="companySelect" class="select">
                     <option value="all">Todas as empresas</option>
-                    <option value="empresa1">Empresa 1</option>
-                    <option value="empresa2">Empresa 2</option>
-                    <!-- Add more options for companies -->
+                    <option value="GoodSalty">Good Salty</option>
+                    <option value="Analisys">Analisys</option>
+                    <option value="Yano">Yano</option>
+                    <option value="PapelariaGloria">Papelaria Glória</option>
+                    <option value="Spazzio">Spazzio</option>
+                   
                 </select>
           
         </div>
         </section>
-
         <section class="company">
             <h2 class="">Empresas parceiras</h2>
             <div class="company-container">
          
-              <div class="column">
+                <div class="column" data-company="Analisys">
                 <img src="https://central.to.gov.br/image/373193?w=300&h=200" alt="Company 2" onclick="toggleOverlay(1)">
                  <div class="badge">Saúde</div>
                 <div class="overlay" id="overlay1" onclick="toggleOverlay(1)">
@@ -233,7 +238,7 @@
                   </div>
                 </div>
               </div>
-              <div class="column">
+              <div class="column" data-company="GoodSalty">
                 <img src="https://central.to.gov.br/image/373201?w=300&h=200" alt="Company 1" onclick="toggleOverlay(2)">
                 <div class="badge">Alimentos</div>
                 <div class="overlay" id="overlay2" onclick="toggleOverlay(2)">
@@ -263,7 +268,7 @@
                 </div>
             </div>
             
-            <div class="column">
+            <div class="column" data-company="Yano">
                 <img src="https://central.to.gov.br/image/369219?w=300&h=200" alt="Company 2" onclick="toggleOverlay(3)">
                 <div class="badge">Saúde</div>
                 <div class="overlay" id="overlay3" onclick="toggleOverlay(3)">
@@ -295,13 +300,13 @@
             
            
             
-              <div class="column">
-                <img src="https://central.to.gov.br/image/373193?w=300&h=200" alt="Company 2" onclick="toggleOverlay(4)">
-                 <div class="badge">Saúde</div>
+              <div class="column" data-company="PapelariaGloria">
+                <img src="https://central.to.gov.br/image/371472?w=300&h=200" alt="Company 2" onclick="toggleOverlay(4)">
+                 <div class="badge">Papelaria</div>
                 <div class="overlay" id="overlay4" onclick="toggleOverlay(4)">
                     <div class="overlay-content">
-                        <img src="https://central.to.gov.br/image/373193?w=300&h=200" alt="Company 2" >
-                    <div class="badge">Saúde</div>
+                        <img src="https://central.to.gov.br/image/371472?w=300&h=200" alt="Company 2" >
+                    <div class="badge">Papelaria</div>
                         <h4>CARDIO VITTA - CENTRO DE DIAGNÓSTICO CARDIOLÓGICO DO TOCANTINS</h4>
                         <p>
                             CONSULTA CARDIOLÓGICA - 120,00</p>
@@ -324,7 +329,7 @@
                     </div>
                 </div>
               </div>
-              <div class="column">
+              <div class="column" data-company="CardioPlaza">
                 <img src="https://central.to.gov.br/image/369703?w=300&h=200" alt="Company 2" onclick="toggleOverlay(5)">
                  <div class="badge">Saúde</div>
                 <div class="overlay" id="overlay5" onclick="toggleOverlay(5)">
@@ -353,7 +358,7 @@
                     </div>
                 </div>
               </div>
-              <div class="column">
+              <div class="column" data-company="Spazzio">
                 <img src="https://central.to.gov.br/image/369702?w=300&h=200" alt="Company 2" onclick="toggleOverlay(6)">
                  <div class="badge">Saúde</div>
                 <div class="overlay" id="overlay6" onclick="toggleOverlay(6)">
@@ -382,7 +387,7 @@
                     </div>
                 </div>
               </div>
-              <div class="column">
+              <div class="column" data-company="MacTurismo">
                 <img src="https://central.to.gov.br/image/371885?w=300&h=200" alt="Company 2" onclick="toggleOverlay(7)">
                  <div class="badge">Turismo</div>
                 <div class="overlay" id="overlay7" onclick="toggleOverlay(7)">
@@ -433,6 +438,32 @@
         overlay.classList.add("active");
       }
     }
+    function filterCompanies() {
+    var selectedActivity = document.getElementById("activitySelect").value;
+    var selectedCompany = document.getElementById("companySelect").value;
+
+    var companies = document.querySelectorAll(".column");
+
+    companies.forEach(function(company) {
+        var activityBadge = company.querySelector(".badge");
+
+        if ((selectedActivity === "all" || activityBadge.textContent === selectedActivity) &&
+            (selectedCompany === "all" || company.getAttribute("data-company") === selectedCompany)) {
+            company.style.display = "block";
+        } else {
+            company.style.display = "none";
+        }
+    });
+}
+
+document.getElementById("activitySelect").addEventListener("change", filterCompanies);
+document.getElementById("companySelect").addEventListener("change", filterCompanies);
+
+// Initial filter on page load
+filterCompanies();
+
+
   </script>
+
 </body>
 </html>
