@@ -391,11 +391,8 @@
   .activity-bar select option:hover {
     background-color: #101955;
 }
-.divider{
-    background-color: #101955;
-    width: 100%;
-    height: 2px;
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+
+.overlay-content h4{
+    border-top: #101955 solid 2px;
+    padding-top: 10px;
 }
