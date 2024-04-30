@@ -265,9 +265,6 @@
         font-size: calc(max(18px, 1.8vw)) !important;
       }
 
-      /* Keep your existing CSS */
-
-/* New styles for responsive design */
 @media only screen and (max-width: 768px) {
     header {
         
@@ -276,8 +273,8 @@
     }
 
     .search-bar {
-        flex-direction: column; /* Stack search bar items in a column */
-        align-items: center; /* Center items horizontally */
+        flex-direction: column; 
+        align-items: center; 
     }
 
     .search-bar input[type="text"] {
