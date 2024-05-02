@@ -226,6 +226,7 @@ nav a {
     box-sizing: border-box;
     transition: opacity 0.3s;
     z-index: 1002;
+    overflow: auto;
 }
 
 .overlay.active {
@@ -239,6 +240,8 @@ nav a {
     transform: translate(-50%, -50%);
     width: 80%;
     max-width: 600px;
+    max-height: 80vh; /* Limit the height to 80% of the viewport height */
+    overflow-y: auto; /* Add vertical scroll if content exceeds max-height */
     background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
     text-align: left;
